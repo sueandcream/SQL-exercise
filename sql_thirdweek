@@ -1,0 +1,2 @@
+select * from sample51;
+select count(*) from sample51;
