@@ -49,3 +49,34 @@ mysql> insert into sample541 values (
   );
 select * from sample541;
 
+select * from sample551;
+select * from sample552;
+update sample551 set a = '있음' where
+	exists (select * from sample552 where no2 = no);
+select * from sample551;
+update sample551 set a = '없음' WHERE
+	NOT exists(select * from sample552 where no2 = no);
+select * from sample551;
+
+select * from sample551 where no in(3, 5);
+select * from sample551 where no in(select no2 from sample552);
+
+CREATE TABLE sample62(
+	no INTEGER NOT NULL,
+    a VARCHAR(30),
+    b DATE);
+
+DESC sample62;
+
+alter table sample62 add newcol integer;
+desc sample62;
+
+alter table sample62 modify newcol varchar(20);
+desc sample62;
+
+alter table sample62 change newcol c varchar(20);
+desc sample62;
+
+alter table sample62 drop c;
+desc sample62;
+
