@@ -80,3 +80,30 @@ desc sample62;
 alter table sample62 drop c;
 desc sample62;
 
+ALTER TABLE sample631 MODIFY c VARCHAR (30) NOT NULL;
+ALTER TABLE sample631 MODIFY c VARCHAR(30);
+ALTER TABLE sample631 DROP CONSTRAINT pkey_sample631;
+ALTER TABLE sample631 DROP PRIMARY KEY;
+
+create table sample634(
+	p integer not null,
+	a varchar(30),
+	constraint pkey_sample634 primary key(p)
+	);
+
+insert into sample634 values (1, '첫째줄');
+insert into sample634 values (2, '둘째줄');
+insert into sample634 values (3, '셋째줄');
+insert into sample634 values (2, '넷째줄');
+
+create index isample65 on sample62(no);
+DROP INDEX isample65 ON sample62;
+
+create view sample_view_67 as select * from sample54;
+select * from sample_view_67;
+
+create view sample_view_672(n, v, v2) AS
+	SELECT no, a, a*2 FROM sample54;
+select * from sample_view_672 where n = 1;
+
+drop view sample_view_67;
